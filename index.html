@@ -408,14 +408,10 @@ const photos = [
     "IMG-20260512-WA0004_1.jpg"
 ];
 
-
 function nextScreen() {
 
-    const current = document.getElementById("screen" + currentScreen);
-
-    if (current) {
-        current.classList.remove("active");
-    }
+    document.getElementById("screen" + currentScreen)
+        .classList.remove("active");
 
     currentScreen++;
 
@@ -423,23 +419,19 @@ function nextScreen() {
         currentScreen = totalScreens;
     }
 
-    const next = document.getElementById("screen" + currentScreen);
+    document.getElementById("screen" + currentScreen)
+        .classList.add("active");
 
-    if (next) {
-        next.classList.add("active");
-    }
+    createHearts();
 
     const music = document.getElementById("bgMusic");
 
     if (music) {
-        music.play().catch(() => {
-            console.log("Tap required to start music");
+        music.play().catch(function() {
+            console.log("Music needs a tap.");
         });
     }
-
-    createHearts();
-                        }
-
+}
 
 function nextPhoto() {
 
@@ -459,13 +451,12 @@ function nextPhoto() {
 
     photo.style.animation = "none";
 
-    setTimeout(() => {
+    setTimeout(function() {
         photo.style.animation = "photoIn 1s ease";
     }, 10);
 
     createHearts();
 }
-
 
 function createHearts() {
 
@@ -475,7 +466,14 @@ function createHearts() {
 
         heart.className = "heart";
 
-        const hearts = ["❤️","💕","💗","💖","💘","🌸"];
+        const hearts = [
+            "❤️",
+            "💕",
+            "💗",
+            "💖",
+            "💘",
+            "🌸"
+        ];
 
         heart.innerText =
             hearts[Math.floor(Math.random() * hearts.length)];
@@ -488,11 +486,12 @@ function createHearts() {
 
         document.body.appendChild(heart);
 
-        setTimeout(() => {
+        setTimeout(function() {
             heart.remove();
         }, 6000);
     }
-}
+    }
+            
 
 </script>
 
