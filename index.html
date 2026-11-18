@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Pallavi ❤️</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    font-family: Georgia, serif;
+    background: linear-gradient(135deg, #ffe1ec, #fff5f8, #ffd6e5);
+    color: #6b1838;
+    overflow-x: hidden;
+    text-align: center;
+}
+
+.screen {
+    min-height: 100vh;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 25px;
+    animation: fadeIn 1s ease;
+}
+
+.screen.active {
+    display: flex;
+}
+
+h1 {
+    font-size: 42px;
+    margin-bottom: 15px;
+}
+
+h2 {
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+p {
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+button {
+    border: none;
+    background: linear-gradient(135deg, #ff4f81, #d91e5b);
+    color: white;
+    padding: 15px 30px;
+    border-radius: 40px;
+    font-size: 17px;
+    margin-top: 25px;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(180, 30, 80, .25);
+}
+
+button:active {
+    transform: scale(.95);
+}
+
+.crown {
+    font-size: 75px;
+    animation: float 2s infinite ease-in-out;
+}
+
+.heart {
+    position: fixed;
+    bottom: -30px;
+    font-size: 25px;
+    animation: rise 5s linear forwards;
+    pointer-events: none;
+}
+
+.photo-container {
+    width: 100%;
+    max-width: 350px;
+}
+
+.photo {
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+    border-radius: 25px;
+    border: 5px solid white;
+    box-shadow: 0 12px 30px rgba(120, 20, 60, .25);
+    animation: photoIn 1s ease;
+}
+
+.photo-number {
+    margin-top: 12px;
+    font-size: 14px;
+    opacity: .7;
+}
+
+.message-box {
+    max-width: 500px;
+    background: rgba(255,255,255,.75);
+    padding: 30px;
+    border-radius: 25px;
+    box-shadow: 0 10px 30px rgba(100,20,50,.12);
+}
+
+.certificate {
+    max-width: 500px;
+    width: 100%;
+    padding: 35px 25px;
+    background: #fff;
+    border: 7px double #e34b77;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(100,20,50,.2);
+}
+
+.certificate h2 {
+    color: #d82d63;
+}
+
+.signature {
+    margin-top: 25px;
+    font-size: 22px;
+    font-style: italic;
+}
+
+.small {
+    font-size: 15px;
+    opacity: .75;
+    margin-top: 10px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+@keyframes rise {
+    0% {
+        transform: translateY(0) scale(.8);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-110vh) scale(1.5);
+        opacity: 0;
+    }
+}
+
+@keyframes photoIn {
+    from {
+        opacity: 0;
+        transform: scale(.85) rotate(-3deg);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) rotate(0);
+    }
+}
+
+@media(max-width:500px) {
+    h1 {
+        font-size: 34px;
+    }
+
+    h2 {
+        font-size: 26px;
+    }
+
+    .photo {
+        height: 360px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- SCREEN 1 -->
+<section class="screen active" id="screen1">
+
+    <div class="crown">👑</div>
+
+    <h1>A Little Surprise...</h1>
+
+    <p>
+        Made especially for<br>
+        <strong>Pallavi ❤️</strong>
+    </p>
+
+    <button onclick="nextScreen()">
+        Open Your Surprise 💗
+    </button>
+
+    <p class="small">
+        From Adarsh
+    </p>
+
+</section>
+
+
+<!-- SCREEN 2 -->
+<section class="screen" id="screen2">
+
+    <div class="crown">👑</div>
+
+    <h1>Happy Princess Day</h1>
+
+    <h2>Pallavi ❤️</h2>
+
+    <p>
+        Because every princess deserves<br>
+        a little special treatment. ✨
+    </p>
+
+    <button onclick="nextScreen()">
+        Continue 💕
+    </button>
+
+</section>
+
+
+<!-- SCREEN 3 -->
+<section class="screen" id="screen3">
+
+    <h2>A Few Memories 📸</h2>
+
+    <div class="photo-container">
+
+        <!-- PHOTO 1 -->
+        <img id="photo" class="photo" src="photo1.jpg" alt="Memory">
+
+        <div class="photo-number" id="photoNumber">
+            Memory 1 of 3
+        </div>
+
+    </div>
+
+    <button onclick="nextPhoto()">
+        Next Memory 💗
+    </button>
+
+</section>
+
+
+<!-- SCREEN 4 -->
+<section class="screen" id="screen4">
+
+    <div class="message-box">
+
+        <div style="font-size:55px;">💌</div>
+
+        <h2>For You, Pallavi</h2>
+
+        <p>
+            Some people become special without
+            even trying.
+        </p>
+
+        <br>
+
+        <p>
+            And somehow, you became one of those
+            people for me. ❤️
+        </p>
+
+        <br>
+
+        <p>
+            I hope this little surprise makes you
+            smile, even if just for a moment.
+        </p>
+
+        <br>
+
+        <p>
+            You deserve all the happiness,
+            smiles and beautiful moments in
+            the world. 🌸
+        </p>
+
+        <button onclick="nextScreen()">
+            One More Thing... ✨
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- SCREEN 5 -->
+<section class="screen" id="screen5">
+
+    <div class="certificate">
+
+        <div style="font-size:60px;">👑</div>
+
+        <h2>Official Princess Certificate</h2>
+
+        <p>
+            This certificate is proudly presented to
+        </p>
+
+        <h1 style="color:#d82d63;">
+            Pallavi
+        </h1>
+
+        <p>
+            for being officially certified as
+        </p>
+
+        <h2>
+            ✨ A Very Special Person ✨
+        </h2>
+
+        <p>
+            Valid forever. No expiry date. ❤️
+        </p>
+
+        <div class="signature">
+            With love,<br>
+            Adarsh ❤️
+        </div>
+
+    </div>
+
+    <button onclick="nextScreen()">
+        Final Surprise 💕
+    </button>
+
+</section>
+
+
+<!-- SCREEN 6 -->
+<section class="screen" id="screen6">
+
+    <div class="crown">👑</div>
+
+    <h1>Pallavi ❤️</h1>
+
+    <div class="message-box">
+
+        <p>
+            If you reached till here...
+        </p>
+
+        <br>
+
+        <p>
+            just remember that someone
+            took the time to make this
+            little world for you. 🌸
+        </p>
+
+        <br>
+
+        <p>
+            Happy Princess Day! 👑
+        </p>
+
+        <br>
+
+        <h2>
+            Stay happy. Stay smiling. ❤️
+        </h2>
+
+        <p class="signature">
+            — Adarsh
+        </p>
+
+    </div>
+
+</section>
+
+
+<script>
+
+let currentScreen = 1;
+
+const totalScreens = 6;
+
+let photoIndex = 1;
+
+const photos = [
+    "photo1.jpg",
+    "photo2.jpg",
+    "photo3.jpg"
+];
+
+
+function nextScreen() {
+
+    document.getElementById("screen" + currentScreen)
+        .classList.remove("active");
+
+    currentScreen++;
+
+    if (currentScreen > totalScreens) {
+        currentScreen = totalScreens;
+    }
+
+    document.getElementById("screen" + currentScreen)
+        .classList.add("active");
+
+    createHearts();
+}
+
+
+function nextPhoto() {
+
+    photoIndex++;
+
+    if (photoIndex > 3) {
+        nextScreen();
+        return;
+    }
+
+    const photo = document.getElementById("photo");
+
+    photo.src = photos[photoIndex - 1];
+
+    document.getElementById("photoNumber").innerText =
+        "Memory " + photoIndex + " of 3";
+
+    photo.style.animation = "none";
+
+    setTimeout(() => {
+        photo.style.animation = "photoIn 1s ease";
+    }, 10);
+
+    createHearts();
+}
+
+
+function createHearts() {
+
+    for (let i = 0; i < 8; i++) {
+
+        const heart = document.createElement("div");
+
+        heart.className = "heart";
+
+        const hearts = ["❤️","💕","💗","💖","💘","🌸"];
+
+        heart.innerText =
+            hearts[Math.floor(Math.random() * hearts.length)];
+
+        heart.style.left =
+            Math.random() * 100 + "vw";
+
+        heart.style.animationDuration =
+            (3 + Math.random() * 3) + "s";
+
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 6000);
+    }
+}
+
+</script>
+
+</body>
+  </html>
