@@ -410,6 +410,16 @@ const photos = [
 
 function nextScreen() {
 
+    const music = document.getElementById("bgMusic");
+
+    music.volume = 0.55;
+
+    if (music.paused) {
+        music.play().catch(error => {
+            console.log("Music could not start:", error);
+        });
+    }
+
     document.getElementById("screen" + currentScreen)
         .classList.remove("active");
 
@@ -417,6 +427,12 @@ function nextScreen() {
 
     if (currentScreen > totalScreens) {
         currentScreen = totalScreens;
+    }
+
+    document.getElementById("screen" + currentScreen)
+        .classList.add("active");
+
+    createHearts();
     }
 
     document.getElementById("screen" + currentScreen)
