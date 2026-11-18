@@ -411,18 +411,11 @@ const photos = [
 
 function nextScreen() {
 
-    const music = document.getElementById("bgMusic");
+    const current = document.getElementById("screen" + currentScreen);
 
-    music.volume = 0.55;
-
-    if (music.paused) {
-        music.play().catch(error => {
-            console.log("Music could not start:", error);
-        });
+    if (current) {
+        current.classList.remove("active");
     }
-
-    document.getElementById("screen" + currentScreen)
-        .classList.remove("active");
 
     currentScreen++;
 
@@ -430,17 +423,22 @@ function nextScreen() {
         currentScreen = totalScreens;
     }
 
-    document.getElementById("screen" + currentScreen)
-        .classList.add("active");
+    const next = document.getElementById("screen" + currentScreen);
 
-    createHearts();
+    if (next) {
+        next.classList.add("active");
     }
 
-    document.getElementById("screen" + currentScreen)
-        .classList.add("active");
+    const music = document.getElementById("bgMusic");
+
+    if (music) {
+        music.play().catch(() => {
+            console.log("Tap required to start music");
+        });
+    }
 
     createHearts();
-}
+                        }
 
 
 function nextPhoto() {
